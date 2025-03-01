@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjumonians Reunion 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e4dcc4;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .vintage-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0,0,0,0.15) 0px,
+                rgba(0,0,0,0.15) 1px,
+                transparent 1px,
+                transparent 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #c5a47e;
+            padding-bottom: 2rem;
+        }
+
+        .school-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            letter-spacing: 4px;
+            color: #c5a47e;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .reunion-title {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 1rem 0;
+        }
+
+        .date-box {
+            background: #2d2d2d;
+            padding: 1.5rem;
+            display: inline-block;
+            margin: 2rem 0;
+            border: 2px solid #c5a47e;
+        }
+
+        .date-day {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .details-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .detail-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-highlights {
+            font-size: 1.2rem;
+            color: #c5a47e;
+            margin: 2rem 0;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #c5a47e;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            border-top: 1px solid #c5a47e;
+        }
+
+        .hashtag {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #c5a47e;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="vintage-overlay"></div>
+    <div class="container">
+        <header class="header">
+            <div class="school-name">SAMGSS</div>
+            <h1 class="reunion-title">Reunion Fest 2025</h1>
+            <div class="date-box">
+                <div class="date-day">Thursday 04 April</div>
+            </div>
+        </header>
+
+        <div class="details-section">
+            <div class="detail-card">
+                <h2>⏰ Time</h2>
+                <p>10:00 AM - 8:00 PM</p>
+            </div>
+            <div class="detail-card">
+                <h2>📍 Venue</h2>
+                <p>School Premises</p>
+            </div>
+        </div>
+
+        <div class="event-highlights">
+            <h2>✨ Event Highlights</h2>
+            <p>Games • Cultural Evening • Live Concert</p>
+        </div>
+
+        <div class="countdown" id="countdown"></div>
+
+        <footer>
+            <p>We are delighted to invite you to share in the joy of a memorable high school reunion!</p>
+            <p class="hashtag">#WeAreArjumonians</p>
+            <p>Organized by SAMGSS Alumni Association</p>
+        </footer>
+    </div>
+
+    <script>
+        // Countdown timer
+        const reunionDate = new Date('April 4, 2025 10:00:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = reunionDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `
+                <div class="countdown-item">
+                    <div class="countdown-number">${days}</div>
+                    <div>Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number">${hours}</div>
+                    <div>Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number">${minutes}</div>
+                    <div>Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number">${seconds}</div>
+                    <div>Seconds</div>
+                </div>
+            `;
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+</html>
